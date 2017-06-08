@@ -4,6 +4,7 @@
   "description": "An application that logs the daily workout routine of gym goers",
   "main": "app.js",
   "scripts": {
+    "start": "nodemon app.js",
     "test": "mocha"
   },
   "repository": {
@@ -24,14 +25,19 @@
   "homepage": "https://github.com/nursh/Workout-Log#readme",
   "dependencies": {
     "chai": "^4.0.2",
-    "mocha": "^3.4.2"
+    "express": "^4.15.3",
+    "helmet": "^3.6.1",
+    "mocha": "^3.4.2",
+    "ms": "^2.0.0"
   },
   "devDependencies": {
+    "babel-loader": "^7.0.0",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^15.0.1",
     "eslint-config-airbnb-base": "^11.2.0",
     "eslint-plugin-import": "^2.3.0",
     "eslint-plugin-jsx-a11y": "^5.0.3",
-    "eslint-plugin-react": "^7.0.1"
+    "eslint-plugin-react": "^7.0.1",
+    "webpack": "^2.6.1"
   }
 }
