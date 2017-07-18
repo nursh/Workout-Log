@@ -2,9 +2,8 @@
   "name": "workout-log",
   "version": "1.0.0",
   "description": "An application that logs the daily workout routine of gym goers",
-  "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "nodemon --watch webpack.config.js --exec \"webpack-dev-server\"",
     "test": "mocha"
   },
   "repository": {
@@ -31,13 +30,23 @@
     "ms": "^2.0.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.24.1",
     "babel-loader": "^7.0.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.24.1",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^15.0.1",
     "eslint-config-airbnb-base": "^11.2.0",
     "eslint-plugin-import": "^2.3.0",
     "eslint-plugin-jsx-a11y": "^5.0.3",
     "eslint-plugin-react": "^7.0.1",
-    "webpack": "^2.6.1"
+    "nodemon": "^1.11.0",
+    "react": "^15.6.0",
+    "react-dom": "^15.6.0",
+    "webpack": "^3.3.0",
+    "webpack-dev-server": "^2.5.1"
   }
 }

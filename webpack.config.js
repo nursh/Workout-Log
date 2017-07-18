@@ -1,28 +1,51 @@
 const path = require('path');
 const webpack = require('webpack');
 
+const PATHS = {
+  app: path.join(__dirname, 'src'),
+  public: path.join(__dirname, 'public'),
+};
 
 module.exports = {
-  entry: './src/App.jsx',
+  entry: {
+    app: './App.jsx',
+  },
+
+  context: PATHS.app,
 
   output: {
     filename: 'app.bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'public'),
   },
 
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
+      name: ['vendor', 'manifest'],
       filename: 'vendor.bundle.js',
+      minChunks: Infinity,
     }),
     new webpack.HotModuleReplacementPlugin(),
   ],
 
   devtool: 'source-map',
 
-  modules: {
+  module: {
     rules: [
       { test: /\.jsx$/, use: 'babel-loader' },
     ],
+  },
+
+  devServer: {
+    contentBase: PATHS.public,
+    port: 3000,
+    hot: true,
+    stats: 'errors-only',
+    inline: true,
+    historyApiFallback: true,
+    proxy: {
+      'api/*': {
+        target: 'http://localhost:8080/',
+      },
+    },
   },
 };
