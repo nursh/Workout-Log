@@ -27,22 +27,24 @@ function Table({ data }) {
     ),
   );
   return (
-    <table className="ui celled structured striped table">
-      <thead>
-        <tr>
-          <th>Body Target</th>
-          <th>Activity</th>
-          <th>Sets</th>
-          <th>Reps</th>
-          <th>Weight</th>
-          <th>Time</th>
-          <th>Distance</th>
-        </tr>
-      </thead>
-      <tbody>
-        {rows}
-      </tbody>
-    </table>
+    <div>
+      <table className="ui celled structured striped table">
+        <thead>
+          <tr>
+            <th>Body Target</th>
+            <th>Activity</th>
+            <th>Sets</th>
+            <th>Reps</th>
+            <th>Weight</th>
+            <th>Time</th>
+            <th>Distance</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows}
+        </tbody>
+      </table>
+    </div>
   );
 }
 
