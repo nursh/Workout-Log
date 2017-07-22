@@ -13,8 +13,8 @@ class App extends Component {
 
   render() {
     return (
-      <div className="ui center aligned header">
-        <h1>Workout Log</h1>
+      <div className="ui center aligned">
+        <h1 className="header center">Workout Log</h1>
         <Table 
           data={this.state.data}
         />

@@ -5,5 +5,12 @@
       {"name": "Push-ups", "sets": 1, "reps": 30, "weight": 120},
       {"name": "Wide-grip Pull ups", "sets": 2, "reps": 15, "weight": 150}
     ]
+  },
+  {
+    "target": "legs",
+    "activities": [
+      {"name": "Push-ups", "sets": 1, "reps": 30, "weight": 120},
+      {"name": "Wide-grip Pull ups", "sets": 2, "reps": 15, "weight": 150}
+    ]
   }
 ]

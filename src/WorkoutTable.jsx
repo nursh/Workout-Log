@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
-const Row = ({ target, row }) => (
+const Row = ({ target, row, span, index }) => (
   <tr>
-    <td>{target.toUpperCase()}</td>
+    {(index === 0) ? <td rowSpan={span}>{target.toUpperCase()}</td> : null }
     <td>{row.name}</td>
     <td>{row.sets}</td>
     <td>{row.reps}</td>
@@ -14,9 +14,17 @@ const Row = ({ target, row }) => (
   </tr>
 );
 
+
 function Table({ data }) {
   const rows = data.map(row =>
-   row.activities.map(workout => <Row row={workout} target={row.target} />),
+    row.activities.map((workout, i) => (
+      <Row
+        row={workout}
+        target={row.target}
+        span={row.activities.length}
+        index={i}
+      />),
+    ),
   );
   return (
     <table className="ui celled structured striped table">
@@ -39,12 +47,21 @@ function Table({ data }) {
 }
 
 Table.propTypes = {
-  data: PropTypes.array,
+  data: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 Row.propTypes = {
-  target: PropTypes.string,
-  row: PropTypes.object,
+  target: PropTypes.string.isRequired,
+  span: PropTypes.number.isRequired,
+  row: PropTypes.shape({
+    name: PropTypes.string,
+    sets: PropTypes.number,
+    reps: PropTypes.number,
+    weight: PropTypes.number,
+    time: PropTypes.number,
+    distance: PropTypes.number,
+  }).isRequired,
+  index: PropTypes.number.isRequired,
 };
 
 export default Table;
