@@ -1,29 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 
 
-const Row = ({ target, row, span, index }) => (
+const Row = props => (
   <tr>
-    {(index === 0) ? <td rowSpan={span}>{target.toUpperCase()}</td> : null }
-    <td>{row.name}</td>
-    <td>{row.sets}</td>
-    <td>{row.reps}</td>
-    <td>{(row.weight) ? row.weight : '-'}</td>
-    <td>{(row.time) ? row.time : '-'}</td>
-    <td>{(row.distance) ? row.distance : '-'}</td>
+    {/* {(props.dateIndex === 0) ? <td rowSpan={props.dateSpan}>{props.date}</td> : new Date()} */}
+    {(props.j === 0) ? <td rowSpan={props.dateSpan}>{moment().format('dddd, MMMM Do YYYY')}</td> : null}
+    {(props.index === 0) ? <td rowSpan={props.span}>{props.target.toUpperCase()}</td> : null }
+    <td>{props.row.name}</td>
+    <td>{props.row.sets}</td>
+    <td>{props.row.reps}</td>
+    <td>{(props.row.weight) ? props.row.weight : '-'}</td>
+    <td>{(props.row.time) ? props.row.time : '-'}</td>
+    <td>{(props.row.distance) ? props.row.distance : '-'}</td>
   </tr>
 );
 
 
 function Table({ data }) {
   const rows = data.map(row =>
-    row.activities.map((workout, i) => (
-      <Row
-        row={workout}
-        target={row.target}
-        span={row.activities.length}
-        index={i}
-      />),
+    row.workouts.map((day, j) =>
+      day.activities.map((workout, i) => (
+        <Row
+          row={workout}
+          target={day.target}
+          span={day.activities.length}
+          index={i}
+          date={row.date}
+          dateIndex={j}
+          dateSpan={row.workouts.length}
+        />),
+      ),
     ),
   );
   return (
@@ -31,6 +39,7 @@ function Table({ data }) {
       <table className="ui celled structured striped table">
         <thead>
           <tr>
+            <th>Date</th>
             <th>Body Target</th>
             <th>Activity</th>
             <th>Sets</th>
@@ -44,6 +53,7 @@ function Table({ data }) {
           {rows}
         </tbody>
       </table>
+      <button className="ui right floated orange button">Add Workout</button>
     </div>
   );
 }
