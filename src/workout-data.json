@@ -1,0 +1,8 @@
+[
+  {
+    "target": "chest",
+    "activities": [
+      {"name": "Push-ups", "sets": 1, "reps": 30, "weight": 120}
+    ]
+  }
+]
