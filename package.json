@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "An application that logs the daily workout routine of gym goers",
   "scripts": {
-    "start": "nodemon --watch webpack.config.js --exec \"webpack-dev-server\"",
+    "webpack": "nodemon --watch webpack.config.js --exec \"webpack-dev-server\"",
+    "server": "nodemon app.js",
+    "start": "npm run webpack & npm run server",
     "test": "mocha"
   },
   "repository": {
@@ -50,6 +52,7 @@
     "react": "^15.6.0",
     "react-dom": "^15.6.0",
     "webpack": "^3.3.0",
-    "webpack-dev-server": "^2.5.1"
+    "webpack-dev-server": "^2.5.1",
+    "whatwg-fetch": "^2.0.3"
   }
 }

@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
+import 'whatwg-fetch';
 
-
-import data from './workout-data.json';
 
 const Row = props => (
   <tr>
@@ -25,10 +24,19 @@ const Row = props => (
 class Table extends React.Component {
 
   state = {
-    data: data,
+    data: [],
   }
 
+  componentDidMount() {
+    this.loadData();
+  }
 
+  loadData() {
+    fetch('/api/data')
+      .then(res => res.json()
+      .then(data => this.setState({ data }) ) )
+      .catch(err => { throw new Error('Cannot get resource') } )
+  }
 
   render() {
     const dateSpan = this.state.data.map(day =>
@@ -53,7 +61,7 @@ class Table extends React.Component {
 
     return (
       <div>
-        <table className="ui celled structured striped table">
+        <table className="ui celled structured striped orange table">
           <thead>
             <tr>
               <th>Date</th>

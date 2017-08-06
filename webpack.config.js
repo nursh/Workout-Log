@@ -37,14 +37,13 @@ module.exports = {
 
   devServer: {
     contentBase: PATHS.public,
-    port: 3000,
     hot: true,
     stats: 'errors-only',
     inline: true,
     historyApiFallback: true,
     proxy: {
-      'api/*': {
-        target: 'http://localhost:8080/',
+      '/api/*': {
+        target: 'http://localhost:3000',
       },
     },
   },
