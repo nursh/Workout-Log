@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
+import { Link } from 'react-router-dom';
 import 'whatwg-fetch';
 
 
@@ -78,7 +79,10 @@ class Table extends React.Component {
             {rows}
           </tbody>
         </table>
-        <button className="ui right floated orange button">Add Workout</button>
+        <Link
+          to="/form">
+          <button className="ui right floated orange button">Add Workout</button>
+        </Link>
       </div>
     );
   }

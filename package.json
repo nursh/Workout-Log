@@ -31,7 +31,8 @@
     "i": "^0.3.5",
     "mocha": "^3.4.2",
     "moment": "^2.18.1",
-    "ms": "^2.0.0"
+    "ms": "^2.0.0",
+    "react-router-dom": "^4.1.2"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
