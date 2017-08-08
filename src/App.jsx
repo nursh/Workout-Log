@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 
 
+import WorkoutHeader from './WorkoutHeader.jsx';
 import Table from './WorkoutTable.jsx';
 import WorkoutForm from './WorkoutForm.jsx';
 
@@ -14,12 +15,13 @@ import WorkoutForm from './WorkoutForm.jsx';
 function App() {
   return (
     <div className="ui center aligned">
-      <h1 className="header center">Workout Log</h1>
       <Router>
-        <Switch>
-          <Route exact path="/" component={Table} />
-          <Route path="/form" component={WorkoutForm} />
-        </Switch>
+        <WorkoutHeader>
+          <Switch>
+            <Route exact path="/" component={Table} />
+            <Route path="/form" component={WorkoutForm} />
+          </Switch>
+        </WorkoutHeader>
       </Router>
     </div>
   );
