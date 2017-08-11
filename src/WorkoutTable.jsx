@@ -16,8 +16,6 @@ const Row = props => (
     <td>{props.row.sets}</td>
     <td>{props.row.reps}</td>
     <td>{(props.row.weight) ? props.row.weight : '-'}</td>
-    <td>{(props.row.time) ? props.row.time : '-'}</td>
-    <td>{(props.row.distance) ? props.row.distance : '-'}</td>
   </tr>
 );
 
@@ -71,8 +69,6 @@ class Table extends React.Component {
               <th>Sets</th>
               <th>Reps</th>
               <th>Weight</th>
-              <th>Time</th>
-              <th>Distance</th>
             </tr>
           </thead>
           <tbody>
@@ -97,8 +93,6 @@ Row.propTypes = {
     sets: PropTypes.number,
     reps: PropTypes.number,
     weight: PropTypes.number,
-    time: PropTypes.number,
-    distance: PropTypes.number,
   }).isRequired,
   index: PropTypes.number.isRequired,
 };

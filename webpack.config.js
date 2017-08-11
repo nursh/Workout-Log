@@ -37,6 +37,8 @@ module.exports = {
 
   devServer: {
     contentBase: PATHS.public,
+    open: true,
+    openPage: '',
     hot: true,
     stats: 'errors-only',
     inline: true,

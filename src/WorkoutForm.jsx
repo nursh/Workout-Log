@@ -1,8 +1,54 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
+
+import FormField from './FormField.jsx';
 
 class WorkoutForm extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      fields: {
+        target: '',
+        activity: '',
+        sets: '',
+        reps: '',
+        weight: '',
+        distance: '',
+      },
+      fieldErrors: {},
+    };
+    this.validate = this.validate.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  getChildContext() {
+    return { handleChange: this.handleChange };
+  }
+
+  handleSubmit(evt) {
+    evt.preventDefault();
+
+    this.setState({
+      fields: {
+        target: '',
+        activity: '',
+        sets: '',
+        reps: '',
+        weight: '',
+        distance: '',
+      },
+    });
+  }
+
+  handleChange({ name, value, error }) {
+    console.log(name, value, error);
+  }
+
+  validate() {
+    return true;
+  }
 
   render() {
     return (
@@ -12,49 +58,50 @@ class WorkoutForm extends Component {
             <h2 className="ui horizontal divider header">
               Workout Form
             </h2>
-            <form className="ui form">
-              <div className="field">
-                <label htmlFor="target">Target</label>
-                <input type="text" name="target" id="target" placeholder="Target" />
-              </div>
+            <form className="ui form" onSubmit={this.handleSubmit}>
 
-              <div className="field">
-                <label htmlFor="activity">Activity</label>
-                <input type="text" name="activity" id="activity" placeholder="Activity" />
-              </div>
+              <FormField
+                name="Target"
+                value={this.state.fields.target}
+              />
 
-              <div className="field">
-                <label htmlFor="sets">Sets</label>
-                <input type="text" name="sets" id="sets" placeholder="Sets" />
-              </div>
+              <FormField
+                name="Activity"
+                value={this.state.fields.activity}
+              />
 
-              <div className="field">
-                <label htmlFor="reps">Reps</label>
-                <input type="text" name="reps" id="reps" placeholder="Reps" />
-              </div>
+              <FormField
+                name="Sets"
+                value={this.state.fields.sets}
+              />
 
-              <div className="field">
-                <label htmlFor="weight">Weight</label>
-                <input type="text" name="weight" id="weight" placeholder="Weight" />
-              </div>
+              <FormField
+                name="Reps"
+                value={this.state.fields.reps}
+              />
 
-              <div className="field">
-                <label htmlFor="distance">Distance</label>
-                <input type="text" name="distance" id="distance" placeholder="Distance" />
-              </div>
+              <FormField
+                name="Weight"
+                value={this.state.fields.weight}
+              />
 
-              <button className="ui right floated teal button" type="submit">Submit</button>
+              <button
+                className="ui fluid teal button"
+                type="submit"
+                disabled={this.validate()}
+              >
+                Submit
+              </button>
             </form>
           </div>
-          <Link
-            to="/"
-          >
-            <button className="ui right floated red button">Back</button>
-          </Link>
         </div>
       </div>
     );
   }
 }
+
+WorkoutForm.childContextTypes = {
+  handleChange: PropTypes.func,
+};
 
 export default WorkoutForm;
