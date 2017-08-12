@@ -49,6 +49,10 @@ export default class FormField extends Component {
           value={this.state.value}
           onChange={this.handleChange}
         />
+
+        <div className="ui negative message">
+          <p>This is an error message</p>
+        </div>
       </div>
     );
   }

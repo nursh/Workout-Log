@@ -43,11 +43,12 @@ class WorkoutForm extends Component {
   }
 
   handleChange({ name, value, error }) {
-    console.log(name, value, error);
+    alert(name, value, error);
   }
 
   validate() {
-    return true;
+    // if there is an error, return true;
+    return false;
   }
 
   render() {

@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 
+
 const PATHS = {
   app: path.join(__dirname, 'src'),
   public: path.join(__dirname, 'public'),
