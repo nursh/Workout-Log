@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import isNumeric from 'validator/lib/isNumeric';
+import isAlpha from 'validator/lib/isAlpha';
 
 
 import FormField from './FormField.jsx';
@@ -89,30 +91,35 @@ class WorkoutForm extends Component {
                 placeholder="Target"
                 name="target"
                 value={this.state.fields.target}
+                validate={val => (val && isAlpha(val) ? false : 'Target must be a number')}
               />
 
               <FormField
                 placeholder="Activity"
                 name="activity"
                 value={this.state.fields.activity}
+                validate={val => (val && isAlpha(val) ? false : 'Activity must be a number')}
               />
 
               <FormField
                 placeholder="Sets"
                 name="sets"
                 value={this.state.fields.sets}
+                validate={val => (val && isNumeric(val) ? false : 'Sets must be a number')}
               />
 
               <FormField
                 placeholder="Reps"
                 name="reps"
                 value={this.state.fields.reps}
+                validate={val => (val && isNumeric(val) ? false : 'Reps must be a number')}
               />
 
               <FormField
                 placeholder="Weight"
                 name="weight"
                 value={this.state.fields.weight}
+                validate={val => (isNumeric(val) ? false : 'Weight must be a number')}
               />
 
               <input

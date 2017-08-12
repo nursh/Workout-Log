@@ -7,7 +7,7 @@ export default class FormField extends Component {
     super(props);
     this.state = {
       value: this.props.value,
-      error: '',
+      error: false,
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -19,7 +19,16 @@ export default class FormField extends Component {
   handleChange(evt) {
     const name = this.props.name;
     const value = evt.target.value;
-    const error = '';
+    const error = this.props.validate(value);
+
+    const showErrorMessage = document.querySelector(`.message.${name}`);
+    if (error) {
+      showErrorMessage.classList.remove('hidden');
+    } else {
+      showErrorMessage.classList.add('hidden');
+    }
+
+
     this.setState({
       value,
       error,
@@ -50,8 +59,8 @@ export default class FormField extends Component {
           onChange={this.handleChange}
         />
 
-        <div className="ui negative hidden message">
-          <p>This is an error message</p>
+        <div className={`ui negative hidden message ${this.props.name}`}>
+          <p>{this.state.error}</p>
         </div>
       </div>
     );
@@ -62,6 +71,7 @@ FormField.propTypes = {
   name: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
+  validate: PropTypes.func.isRequired,
 };
 
 FormField.contextTypes = {
