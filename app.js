@@ -2,6 +2,7 @@ const express = require('express');
 const helmet = require('helmet');
 const ms = require('ms');
 const path = require('path');
+const bodyParser = require('body-parser');
 const data = require('./assets/workout-data.json');
 
 
@@ -18,9 +19,14 @@ app.use(helmet.noSniff());
 app.disable('x-powered-by');
 
 app.use(express.static(path.resolve(__dirname, 'public')));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/api/data', (req, res) => {
   res.status(200).json(data);
+});
+
+app.post('/post/form', (req, res) => {
+  res.status(200).json(req.body.workout);
 });
 
 app.listen(port, () => console.log(`App is running on port:${port}`));

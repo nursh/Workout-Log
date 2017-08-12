@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import isNumeric from 'validator/lib/isNumeric';
 import isAlpha from 'validator/lib/isAlpha';
+import 'whatwg-fetch';
 
 
 import FormField from './FormField.jsx';
@@ -44,9 +45,15 @@ class WorkoutForm extends Component {
       },
     });
 
-    console.log(workout);
-
-    // do some ajax request to the server to add to the json file using workout;
+    fetch('/post/form', {
+      method: 'post',
+      body: workout,
+      headers: {
+        'Content-type': 'application/json',
+      },
+    })
+    .then(response => console.log(response.status))
+    .catch(err => console.log(err));
   }
 
   handleChange({ name, value, error }) {
@@ -91,14 +98,14 @@ class WorkoutForm extends Component {
                 placeholder="Target"
                 name="target"
                 value={this.state.fields.target}
-                validate={val => (val && isAlpha(val) ? false : 'Target must be a number')}
+                validate={val => (val && isAlpha(val) ? false : 'Target should only contain letters')}
               />
 
               <FormField
                 placeholder="Activity"
                 name="activity"
                 value={this.state.fields.activity}
-                validate={val => (val && isAlpha(val) ? false : 'Activity must be a number')}
+                validate={val => (val && isAlpha(val) ? false : 'Activity should only contain letters')}
               />
 
               <FormField

@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/nursh/Workout-Log#readme",
   "dependencies": {
+    "body-parser": "^1.17.2",
     "chai": "^4.0.2",
     "express": "^4.15.3",
     "helmet": "^3.6.1",

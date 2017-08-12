@@ -19,7 +19,11 @@ export default class FormField extends Component {
   handleChange(evt) {
     const name = this.props.name;
     const value = evt.target.value;
-    const error = this.props.validate(value);
+
+    const inValue = (name === 'activity' || name === 'target') ?
+      value.split(' ').join('') :
+      value;
+    const error = this.props.validate(inValue);
 
     const showErrorMessage = document.querySelector(`.message.${name}`);
     if (error) {
