@@ -14,7 +14,6 @@ class WorkoutForm extends Component {
         sets: '',
         reps: '',
         weight: '',
-        distance: '',
       },
       fieldErrors: {},
     };
@@ -30,6 +29,9 @@ class WorkoutForm extends Component {
   handleSubmit(evt) {
     evt.preventDefault();
 
+    const workout = this.state.fields;
+    if (this.validate()) return;
+
     this.setState({
       fields: {
         target: '',
@@ -37,17 +39,39 @@ class WorkoutForm extends Component {
         sets: '',
         reps: '',
         weight: '',
-        distance: '',
       },
     });
+
+    console.log(workout);
+
+    // do some ajax request to the server to add to the json file using workout;
   }
 
   handleChange({ name, value, error }) {
-    alert(name, value, error);
+    const fields = this.state.fields;
+    const fieldErrors = this.state.fieldErrors;
+
+    fields[name] = value;
+    fieldErrors[name] = error;
+
+    this.setState({
+      fields,
+      fieldErrors,
+    });
   }
 
   validate() {
-    // if there is an error, return true;
+    const workout = this.state.fields;
+    const fieldErrors = this.state.fieldErrors;
+    const errorMessages = Object.keys(fieldErrors).filter(k => fieldErrors[k]);
+
+    for (const prop in workout) {
+      if (prop !== 'weight') {
+        if (!workout[prop]) return true;
+      }
+    }
+
+    if (errorMessages.length) return true;
     return false;
   }
 
@@ -62,37 +86,40 @@ class WorkoutForm extends Component {
             <form className="ui form" onSubmit={this.handleSubmit}>
 
               <FormField
-                name="Target"
+                placeholder="Target"
+                name="target"
                 value={this.state.fields.target}
               />
 
               <FormField
-                name="Activity"
+                placeholder="Activity"
+                name="activity"
                 value={this.state.fields.activity}
               />
 
               <FormField
-                name="Sets"
+                placeholder="Sets"
+                name="sets"
                 value={this.state.fields.sets}
               />
 
               <FormField
-                name="Reps"
+                placeholder="Reps"
+                name="reps"
                 value={this.state.fields.reps}
               />
 
               <FormField
-                name="Weight"
+                placeholder="Weight"
+                name="weight"
                 value={this.state.fields.weight}
               />
 
-              <button
+              <input
                 className="ui fluid teal button"
                 type="submit"
                 disabled={this.validate()}
-              >
-                Submit
-              </button>
+              />
             </form>
           </div>
         </div>

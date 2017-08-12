@@ -21,8 +21,8 @@ export default class FormField extends Component {
     const value = evt.target.value;
     const error = '';
     this.setState({
-      name,
       value,
+      error,
     });
     this.context.handleChange({
       name,
@@ -36,21 +36,21 @@ export default class FormField extends Component {
     return (
       <div className="field">
         <label
-          htmlFor={this.props.name.toLowerCase()}
+          htmlFor={this.props.name}
         >
-          {this.props.name}
+          {this.props.placeholder}
         </label>
 
         <input
           type="text"
-          name={this.props.name.toLowerCase()}
-          id={this.props.name.toLowerCase()}
-          placeholder={this.props.name}
+          name={this.props.name}
+          id={this.props.name}
+          placeholder={this.props.placeholder}
           value={this.state.value}
           onChange={this.handleChange}
         />
 
-        <div className="ui negative message">
+        <div className="ui negative hidden message">
           <p>This is an error message</p>
         </div>
       </div>
@@ -61,6 +61,7 @@ export default class FormField extends Component {
 FormField.propTypes = {
   name: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
+  placeholder: PropTypes.string.isRequired,
 };
 
 FormField.contextTypes = {
