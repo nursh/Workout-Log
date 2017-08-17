@@ -10,25 +10,9 @@ const Header = props => (
         <Link
           to="/"
         >
-          <i className="book icon"></i>
+          <i className="book icon" />
           Workout Log
         </Link>
-      </div>
-      <div className="right menu">
-        <div className="item">
-          <Link
-            to="/"
-          >
-            Log In
-          </Link>
-        </div>
-        <div className="item">
-          <Link
-            to="/"
-          >
-            Sign Up
-          </Link>
-        </div>
       </div>
     </div>
     <div className="ui container">
