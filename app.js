@@ -22,8 +22,8 @@ app.disable('x-powered-by');
 app.use(morgan('tiny'));
 
 app.use(express.static(path.resolve(__dirname, 'public')));
-app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 
 app.get('/api/data', (req, res) => {

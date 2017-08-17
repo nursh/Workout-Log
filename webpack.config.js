@@ -45,7 +45,7 @@ module.exports = {
     inline: true,
     historyApiFallback: true,
     proxy: [{
-      context: ['/post/form/*', '/api/*'],
+      context: ['/api/data', '/post/form'],
       target: 'http://localhost:3000',
     }],
   },

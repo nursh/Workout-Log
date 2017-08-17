@@ -23,6 +23,7 @@ class WorkoutForm extends Component {
     this.validate = this.validate.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.postData = this.postData.bind(this);
   }
 
   getChildContext() {
@@ -45,14 +46,19 @@ class WorkoutForm extends Component {
       },
     });
 
+    this.postData(workout);
+  }
+
+  postData(data) {
     fetch('/post/form', {
       method: 'post',
-      body: workout,
+      body: JSON.stringify(data),
       headers: {
-        'Content-type': 'application/json',
+        'Content-Type': 'application/json',
       },
     })
-    .then(response => console.log(response.status))
+    .then(response => response.json())
+    .then(json => console.log(json))
     .catch(err => console.log(err));
   }
 
