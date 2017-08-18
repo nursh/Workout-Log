@@ -59,7 +59,7 @@ class WorkoutForm extends Component {
     })
     .then(response => response.json())
     .then(json => console.log(json))
-    .catch(err => console.log(err));
+    .catch(err => console.error(err));
   }
 
   handleChange({ name, value, error }) {
