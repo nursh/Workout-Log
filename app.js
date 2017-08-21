@@ -5,6 +5,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
+require('dotenv').config();
 const Schema = require('./Schema/WorkoutSchema');
 
 
@@ -25,8 +26,9 @@ app.use(express.static(path.resolve(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-
-mongoose.connect('mongodb://localhost/workouts', {
+const dbUser = process.env.DB_USER;
+const dbPass = process.env.DB_PASS;
+mongoose.connect(`mongodb://${dbUser}:${dbPass}@ds151433.mlab.com:51433/workout-log`, {
   useMongoClient: true,
 });
 const db = mongoose.connection;
