@@ -46,6 +46,7 @@ class WorkoutForm extends Component {
       },
     });
 
+    workout.target = workout.target.toLowerCase();
     this.postData(workout);
   }
 
@@ -58,7 +59,6 @@ class WorkoutForm extends Component {
       },
     })
     .then(response => response.json())
-    .then(json => console.log(json))
     .catch(err => console.error(err));
   }
 

@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import moment from 'moment';
 import { Link } from 'react-router-dom';
 import 'whatwg-fetch';
 
@@ -9,7 +8,7 @@ const Row = props => (
   <tr>
     {(props.dateIndex === 0 && props.index === 0) ?
       <td rowSpan={props.dateSpan}>
-        { (props.date) ? props.date : moment().format('MMMM Do YYYY')}</td> :
+        { props.date }</td> :
       null}
     {(props.index === 0) ? <td rowSpan={props.span}>{props.target.toUpperCase()}</td> : null }
     <td>{props.row.name}</td>
