@@ -3,7 +3,6 @@ const helmet = require('helmet');
 const ms = require('ms');
 const path = require('path');
 const bodyParser = require('body-parser');
-const data = require('./assets/workout-data.json');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 const Schema = require('./Schema/WorkoutSchema');
