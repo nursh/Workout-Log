@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 require('dotenv').config();
+const express_enforces_ssl = require('express-enforces-ssl');
 const Schema = require('./Schema/WorkoutSchema');
 
 
@@ -21,6 +22,7 @@ app.use(helmet.xssFilter());
 app.use(helmet.noSniff());
 app.disable('x-powered-by');
 app.use(morgan('tiny'));
+app.use(express_enforces_ssl());
 
 app.use(express.static(path.resolve(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: false }));
