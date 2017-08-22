@@ -66,5 +66,8 @@
     "superagent": "^3.5.2",
     "webpack": "^3.3.0",
     "webpack-dev-server": "^2.5.1"
+  },
+  "engines": {
+    "node": "8.0.0"
   }
 }
