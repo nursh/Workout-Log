@@ -4,9 +4,9 @@
   "description": "An application that logs the daily workout routine of gym goers",
   "scripts": {
     "webpack": "nodemon --watch webpack.config.js --exec \"webpack-dev-server\"",
-    "server": "nodemon app.js",
+    "start": "forever app.js",
     "build": "webpack",
-    "start": "npm run webpack & npm run server",
+    "start:dev": "npm run webpack & npm run server",
     "test": "mocha",
     "build:dev": "webpack --env=dev --progress --profile --colors",
     "build:prod": "webpack --env=prod --progress --profile --colors"
@@ -32,6 +32,7 @@
     "chai": "^4.0.2",
     "dotenv": "^4.0.0",
     "express": "^4.15.3",
+    "forever": "^0.15.3",
     "helmet": "^3.6.1",
     "i": "^0.3.5",
     "mocha": "^3.4.2",
