@@ -22,6 +22,7 @@ app.use(helmet.xssFilter());
 app.use(helmet.noSniff());
 app.disable('x-powered-by');
 app.use(morgan('tiny'));
+app.enable('trust-proxy');
 app.use(express_enforces_ssl());
 
 app.use(express.static(path.resolve(__dirname, 'public')));
