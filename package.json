@@ -6,7 +6,7 @@
     "webpack": "nodemon --watch webpack.config.js --exec \"webpack-dev-server\"",
     "start": "forever app.js",
     "build": "webpack",
-    "server": "node app.js"
+    "server": "node app.js",
     "start:dev": "npm run webpack & npm run server",
     "test": "mocha",
     "build:dev": "webpack --env=dev --progress --profile --colors",
