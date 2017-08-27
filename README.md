@@ -6,7 +6,7 @@ A simple project displaying a log of workouts.
 
 ## Description
 
-The project uses react to build a simple application for logging workouts.  
+The project is a simple application for logging workouts.  
 It consists of two pages.
   * A page displaying the table of workouts
   * A page displaying the form to add workouts
