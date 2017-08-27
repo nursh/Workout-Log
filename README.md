@@ -13,4 +13,4 @@ The link to the application is: [Workout-Log Application](https://workout-logg.h
 
 ### Author
 
-* ** Nur-sh **
+* **Nur-sh**
