@@ -4,13 +4,29 @@
 
 A simple project displaying a log of workouts.
 
-## Getting Started
+## Description
+
+The project uses react to build a simple application for logging workouts.  
+It consists of two pages.
+  * A page displaying the table of workouts
+  * A page displaying the form to add workouts
+ 
+
+### Build with
+
+* React
+* Webpack
+* Semantic-UI
+* TravisCI
+* Heroku
+
 
 ### Deployment 
-
-The project was deployed using heroku.  
-The link to the application is: [Workout-Log Application](https://workout-logg.herokuapp.com/)
+  
+Application link: [Workout-Log Application](https://workout-logg.herokuapp.com/)
 
 ### Author
 
 * **Nur-sh**
+
+
