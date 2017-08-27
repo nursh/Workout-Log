@@ -8,5 +8,5 @@ A simple project displaying a log of workouts.
 
 ### Deployment 
 
-The project was deployed using heroku. 
+The project was deployed using heroku.  
 The link to the application is: [Heroku-Link](https://workout-logg.herokuapp.com/)
