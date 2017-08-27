@@ -29,4 +29,9 @@ Application link: [Workout-Log Application](https://workout-logg.herokuapp.com/)
 
 * **Nur-sh**
 
+### Acknowledgements
+
+* FullStack React book
+* Pro MERN Stack book
+
 
