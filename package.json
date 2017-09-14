@@ -5,7 +5,7 @@
   "scripts": {
     "webpack": "nodemon --watch webpack.config.js --exec \"webpack-dev-server\"",
     "start": "forever app.js",
-    "build": "webpack",
+    "build": "webpack --env prod",
     "server": "node app.js",
     "start:dev": "npm run webpack & npm run server",
     "test": "mocha",

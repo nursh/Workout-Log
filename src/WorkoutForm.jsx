@@ -93,54 +93,56 @@ class WorkoutForm extends Component {
   render() {
     return (
       <div className="ui grid centered">
-        <div className="six wide column">
-          <div className="ui raised very padded segment">
-            <h2 className="ui horizontal divider header">
-              Workout Form
-            </h2>
-            <form className="ui form" onSubmit={this.handleSubmit}>
+        <div className="row">
+        <div className="sixteen wide mobile ten wide tablet eight wide computer column">
+            <div className="ui raised very padded segment">
+              <h2 className="ui horizontal divider header">
+                Workout Form
+              </h2>
+              <form className="ui form" onSubmit={this.handleSubmit}>
 
-              <FormField
-                placeholder="Target"
-                name="target"
-                value={this.state.fields.target}
-                validate={val => (val && isAlpha(val) ? false : 'Target should only contain letters')}
-              />
+                <FormField
+                  placeholder="Target"
+                  name="target"
+                  value={this.state.fields.target}
+                  validate={val => (val && isAlpha(val) ? false : 'Target should only contain letters')}
+                />
 
-              <FormField
-                placeholder="Activity"
-                name="activity"
-                value={this.state.fields.activity}
-                validate={val => (val && isAlpha(val) ? false : 'Activity should only contain letters')}
-              />
+                <FormField
+                  placeholder="Activity"
+                  name="activity"
+                  value={this.state.fields.activity}
+                  validate={val => (val && isAlpha(val) ? false : 'Activity should only contain letters')}
+                />
 
-              <FormField
-                placeholder="Sets"
-                name="sets"
-                value={this.state.fields.sets}
-                validate={val => (val && isNumeric(val) ? false : 'Sets must be a number')}
-              />
+                <FormField
+                  placeholder="Sets"
+                  name="sets"
+                  value={this.state.fields.sets}
+                  validate={val => (val && isNumeric(val) ? false : 'Sets must be a number')}
+                />
 
-              <FormField
-                placeholder="Reps"
-                name="reps"
-                value={this.state.fields.reps}
-                validate={val => (val && isNumeric(val) ? false : 'Reps must be a number')}
-              />
+                <FormField
+                  placeholder="Reps"
+                  name="reps"
+                  value={this.state.fields.reps}
+                  validate={val => (val && isNumeric(val) ? false : 'Reps must be a number')}
+                />
 
-              <FormField
-                placeholder="Weight"
-                name="weight"
-                value={this.state.fields.weight}
-                validate={val => (isNumeric(val) ? false : 'Weight must be a number')}
-              />
+                <FormField
+                  placeholder="Weight"
+                  name="weight"
+                  value={this.state.fields.weight}
+                  validate={val => (isNumeric(val) ? false : 'Weight must be a number')}
+                />
 
-              <input
-                className="ui fluid teal button"
-                type="submit"
-                disabled={this.validate()}
-              />
-            </form>
+                <input
+                  className="ui fluid teal button"
+                  type="submit"
+                  disabled={this.validate()}
+                />
+              </form>
+            </div>
           </div>
         </div>
       </div>
